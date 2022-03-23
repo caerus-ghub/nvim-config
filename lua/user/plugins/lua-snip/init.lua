@@ -5,11 +5,8 @@ if not ok then
   return
 end
 
-require('user/plugins/lua-snip/mappings');
-
-local snippet = lua_snip.snippet;
-local text_node = lua_snip.text_node;
-local insert_node = lua_snip.insert_node;
+require('user/plugins/lua-snip/mappings')
+local js_snips = require('user/plugins/lua-snip/js-snips')
 -- local function_node = plugin.function_mode;
 
 lua_snip.config.set_config {
@@ -31,13 +28,8 @@ lua_snip.config.set_config {
 }
 
 lua_snip.snippets = {
-  javascript = {
-    snippet(
-      'c', {
-        text_node('console.log('),
-        insert_node(1, 'placeholder'),
-        text_node(');'),
-      }
-    ),
-  }
+  javascript = js_snips,
+  javascriptreact = js_snips,
+  typescript = js_snips,
+  typescriptreact = js_snips,
 }
