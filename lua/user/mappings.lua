@@ -56,6 +56,14 @@ map('n', leader..'fb', '<cmd>Telescope buffers<cr>', opts)
 map('n', leader..'fh', '<cmd>Telescope help_tags<cr>', opts)
 map('n', leader..'fc', '<cmd>Telescope find_files cwd=~/.config/nvim<cr>', opts)
 
+-- plugin - luasnip
+map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("i", "<C-E>", "<Plug>luasnip-next-choice", {})
+map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
+
 local function set_lsp_keymaps()
   map_buf(0, 'n', leader..'lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map_buf(0, 'n', leader..'la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)

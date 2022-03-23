@@ -1,10 +1,15 @@
-local function prequire(...)
-local status, lib = pcall(require, ...)
-if (status) then return lib end
-    return nil
+local lua_snip_ok, lua_snip = pcall(require, 'luasnip')
+local cmp_ok, cmp = pcall(require, 'cmp')
+
+if not lua_snip_ok then
+  vim.cmd('echom "plugin error: luasnip is missing"')
+  return
 end
 
-local luasnip = prequire('luasnip')
+if not cmp_ok then
+  vim.cmd('echom "plugin error: cmp is missing"')
+  return
+end
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -20,32 +25,25 @@ local check_back_space = function()
 end
 
 _G.tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t "<C-n>"
-    elseif luasnip and luasnip.expand_or_jumpable() then
+    if cmp and cmp.visible() then
+        cmp.select_next_item()
+    elseif lua_snip and lua_snip.expand_or_jumpable() then
         return t("<Plug>luasnip-expand-or-jump")
     elseif check_back_space() then
         return t "<Tab>"
     else
-        return vim.fn['compe#complete']()
+        cmp.complete()
     end
     return ""
 end
 
 _G.s_tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-    elseif luasnip and luasnip.jumpable(-1) then
+    if cmp and cmp.visible() then
+        cmp.select_prev_item()
+    elseif lua_snip and lua_snip.jumpable(-1) then
         return t("<Plug>luasnip-jump-prev")
     else
         return t "<S-Tab>"
     end
     return ""
 end
-
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
