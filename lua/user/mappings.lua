@@ -46,7 +46,7 @@ map('n', leader..'h1', ':lua require("harpoon.ui").nav_file(1)<cr>', opts)
 map('n', leader..'h2', ':lua require("harpoon.ui").nav_file(2)<cr>', opts)
 map('n', leader..'h3', ':lua require("harpoon.ui").nav_file(3)<cr>', opts)
 map('n', leader..'h4', ':lua require("harpoon.ui").nav_file(4)<cr>', opts)
-map('n', leader..'h4', ':lua require("harpoon.ui").nav_file(5)<cr>', opts)
+map('n', leader..'h5', ':lua require("harpoon.ui").nav_file(5)<cr>', opts)
 map('n', leader..'hf', ':lua require("harpoon.ui").toggle_quick_menu()<cr>', opts)
 
 -- plugin - telescope
@@ -55,6 +55,14 @@ map('n', leader..'fg', '<cmd>Telescope live_grep<cr>', opts)
 map('n', leader..'fb', '<cmd>Telescope buffers<cr>', opts)
 map('n', leader..'fh', '<cmd>Telescope help_tags<cr>', opts)
 map('n', leader..'fc', '<cmd>Telescope find_files cwd=~/.config/nvim<cr>', opts)
+
+-- plugin - luasnip
+map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("i", "<C-E>", "<Plug>luasnip-next-choice", {})
+map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 local function set_lsp_keymaps()
   map_buf(0, 'n', leader..'lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)

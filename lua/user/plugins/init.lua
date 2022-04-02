@@ -1,6 +1,7 @@
 require 'user/plugins/packer'
 require 'user/plugins/treesitter'
 require 'user/plugins/git-signs'
+require 'user/plugins/indent-blank-line'
 require 'user/plugins/null-ls'
 require 'user/plugins/nvim-tree'
 require 'user/plugins/telescope'
