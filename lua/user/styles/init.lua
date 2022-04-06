@@ -32,6 +32,7 @@ hi('NvimTreeFolderIcon', colors.blue)
 hi('GitSignsAdd', colors.green)
 hi('GitSignsChange', colors.yellow)
 hi('GitSignsDelete', colors.red)
+hi('GitSignsCurrentLineBlame', colors.gray)
 
 -- lsp
 hi('DiagnosticError', colors.red)
