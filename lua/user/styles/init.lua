@@ -34,6 +34,11 @@ hi('GitSignsChange', colors.yellow)
 hi('GitSignsDelete', colors.red)
 hi('GitSignsCurrentLineBlame', colors.gray)
 
+-- lualine
+hi('LualineDiffAdd', colors.green, colors.gray_light)
+hi('LualineDiffChange', colors.yellow, colors.gray_light)
+hi('LualineDiffDelete', colors.red, colors.gray_light)
+
 -- lsp
 hi('DiagnosticError', colors.red)
 

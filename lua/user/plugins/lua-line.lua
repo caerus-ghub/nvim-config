@@ -5,6 +5,21 @@ if not ok then
   return
 end
 
+local diff_component = {
+  'diff',
+  colored = true,
+  diff_color = {
+    added    = 'LualineDiffAdd',
+    modified = 'LualineDiffChange',
+    removed  = 'LUalineDiffDelete',
+  },
+  symbols = {
+    added = '+',
+    modified = '~',
+    removed = '-'
+  },
+}
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -16,7 +31,7 @@ lualine.setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {'branch', diff_component, 'diagnostics'},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {'filename', 'progress'},
