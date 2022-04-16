@@ -20,6 +20,21 @@ local diff_component = {
   },
 }
 
+local diagnostics_component = {
+  'diagnostics',
+  sources = { 'nvim_diagnostic' },
+  sections = { 'error', 'warn', 'info', 'hint' },
+  diagnostics_color = {
+    error = 'LualineDiagnosticError',
+    warn  = 'LualineDiagnosticWarn',
+    info  = 'LuadlineDiagnosticInfo',
+    hint  = 'LualineDiagnosticHint',
+  },
+  colored = true,           -- Displays diagnostics status in color if set to true.
+  update_in_insert = false, -- Update diagnostics in insert mode.
+  always_visible = false,   -- Show diagnostics even if there are none.
+}
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -31,7 +46,7 @@ lualine.setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', diff_component, 'diagnostics'},
+    lualine_b = {'branch', diff_component, diagnostics_component},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {'filename', 'progress'},
