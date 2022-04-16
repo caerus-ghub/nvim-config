@@ -8,6 +8,7 @@ end
 vim.cmd('source ~/.config/nvim/lua/user/plugins/nvim-tree.vim')
 
 nvim_tree.setup {
+  nvim_tree_indent_markers    = true,
   nvim_tree_quit_on_open      = false,
   nvim_tree_change_dir_global = true,
   nvim_tree_disable_window_picker = true,

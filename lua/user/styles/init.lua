@@ -32,6 +32,16 @@ hi('NvimTreeFolderIcon', colors.blue)
 hi('GitSignsAdd', colors.green)
 hi('GitSignsChange', colors.yellow)
 hi('GitSignsDelete', colors.red)
+hi('GitSignsCurrentLineBlame', colors.gray)
+
+-- lualine
+hi('LualineDiffAdd', colors.green, colors.gray_light)
+hi('LualineDiffChange', colors.yellow, colors.gray_light)
+hi('LualineDiffDelete', colors.red, colors.gray_light)
+hi('LualineDiagnosticError', colors.red, colors.gray_light)
+hi('LualineDiagnosticWarn', colors.orange, colors.gray_light)
+hi('LualineDiagnosticInfo', colors.blue_light, colors.gray_light)
+hi('LualineDiagnosticHint', colors.blue_light, colors.gray_light)
 
 -- lsp
 hi('DiagnosticError', colors.red)

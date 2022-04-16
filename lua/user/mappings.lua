@@ -42,11 +42,9 @@ map('n', leader..'sc', '<cmd>:NvimTreeToggle<CR>', opts)
 
 -- plugin - harpoon
 map('n', leader..'ha', ':lua require("harpoon.mark").add_file()<cr>', opts)
-map('n', leader..'h1', ':lua require("harpoon.ui").nav_file(1)<cr>', opts)
-map('n', leader..'h2', ':lua require("harpoon.ui").nav_file(2)<cr>', opts)
-map('n', leader..'h3', ':lua require("harpoon.ui").nav_file(3)<cr>', opts)
-map('n', leader..'h4', ':lua require("harpoon.ui").nav_file(4)<cr>', opts)
-map('n', leader..'h5', ':lua require("harpoon.ui").nav_file(5)<cr>', opts)
+for i=1, 8 do
+  map('n', leader..'h'..i, ':lua require("harpoon.ui").nav_file('..i..')<cr>', opts)
+end
 map('n', leader..'hf', ':lua require("harpoon.ui").toggle_quick_menu()<cr>', opts)
 
 -- plugin - telescope
