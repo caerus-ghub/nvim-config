@@ -5,10 +5,12 @@ if not ok then
   return
 end
 
+local luasnip = require('luasnip')
+
 cmp.setup {
    snippet = {
       expand = function(args)
-         vim.fn["vsnip#anonymous"](args.body)
+        luasnip.lsp_expand(args.body)
       end,
    },
    mapping = {
@@ -35,9 +37,8 @@ cmp.setup {
       end,
    },
    sources = {
-      { name = "nvim_lsp" },
-      { name = "vsnip" },
-      { name = "path" },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
    },
 }
 
