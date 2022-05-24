@@ -6,7 +6,7 @@ local on_attach_diagnosticls = require('user/lsp/handlers/diagnosticls')
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
@@ -23,11 +23,11 @@ end
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     on_attach_tsserver(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
   if client.name == "diagnosticls" then
     on_attach_diagnosticls()
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
 
   set_lsp_keymaps(bufnr)
