@@ -8,7 +8,7 @@ end
 indent_blank_line.setup {
   char_blankline = '│',
   show_current_context = true,
-  show_current_context_start = true,
+  show_current_context_start = false,
   context_patterns = {
     "literal_value", "abstract_class_declaration", "abstract_method_signature",
     "accessibility_modifier", "ambient_declaration", "arguments", "array",

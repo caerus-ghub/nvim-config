@@ -8,32 +8,54 @@ end
 vim.cmd('source ~/.config/nvim/lua/user/plugins/nvim-tree.vim')
 
 nvim_tree.setup {
-  -- nvim_tree_indent_markers    = true,
-  -- nvim_tree_quit_on_open      = false,
-  -- nvim_tree_change_dir_global = true,
-  -- nvim_tree_disable_window_picker = true,
-  -- nvim_tree_window_picker_exclude = {
-    -- filetype = {
-      -- 'notify',
-      -- 'packer',
-      -- 'qf'
-    -- },
-    -- buftype = {
-      -- 'terminal'
-    -- }
-  -- },
-  disable_netrw          = true,
-  hijack_netrw           = true,
-  open_on_setup          = false,
-  ignore_ft_on_setup     = {},
-  -- auto_close             = false,
-  open_on_tab            = false,
-  hijack_cursor          = false,
-  update_cwd             = false,
-  -- update_to_buf_dir      = {
-    -- enable = true,
-    -- auto_open = true,
-  -- },
+  renderer = {
+    add_trailing           = true,
+    root_folder_modifier   = ':~',
+    highlight_opened_files = 'all',
+    group_empty            = true,
+    special_files          = { 'README.md', 'Makefile', 'MAKEFILE' },
+    icons = {
+      padding       = ' ',
+      symlink_arrow = ' >> ',
+      glyphs = {
+        -- 'git',
+        -- 'folders',
+        -- 'files',
+        -- 'folder_arrows',
+        default       = '',
+        symlink       = '',
+        folder = {
+          arrow_open   = "",
+          arrow_closed = "",
+          default      = "",
+          open         = "",
+          empty        = "",
+          empty_open   = "",
+          symlink      = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged  = "✗",
+          staged    = "✓",
+          unmerged  = "",
+          renamed   = "➜",
+          untracked = "★",
+          deleted   = "",
+          ignored   = "◌"
+        },
+      },
+    },
+  },
+  respect_buf_cwd         = true,
+  -- git_hl                  = true,
+  create_in_closed_folder = false,
+  disable_netrw           = true,
+  hijack_netrw            = true,
+  open_on_setup           = false,
+  ignore_ft_on_setup      = {},
+  open_on_tab             = false,
+  hijack_cursor           = false,
+  update_cwd              = false,
   diagnostics = {
     enable = false,
     icons = {
@@ -66,7 +88,6 @@ nvim_tree.setup {
     height = 30,
     hide_root_folder = false,
     side = 'left',
-    -- auto_resize = true,
     mappings = {
       custom_only = false,
       list = {}
