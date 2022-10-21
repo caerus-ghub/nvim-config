@@ -22,6 +22,12 @@ map('n', leader..'wg', '<c-w>h', opts)
 map('n', leader..'wk', '<c-w>l', opts)
 map('n', leader..'wh', '<c-w>k', opts)
 map('n', leader..'wj', '<c-w>j', opts)
+
+map('n', leader..'wG', '<c-w>H', opts)
+map('n', leader..'wK', '<c-w>L', opts)
+map('n', leader..'wH', '<c-w>K', opts)
+map('n', leader..'wJ', '<c-w>J', opts)
+
 map('n', leader..'wx', '<c-u>:execute "bN|bd#"<cr>', opts)
 
 -- config
@@ -29,8 +35,8 @@ map('n', leader..'ce', 'edit $MYVIMRC', opts)
 map('n', leader..'cu', 'source $MYVIMRC', opts)
 
 -- tabulation
-map('n', leader..'t2', ':execute "set shiftwidth=2 <bar> set tabstop=2"<cr>', opts)
-map('n', leader..'t4', ':execute "set shiftwidth=4 <bar> set tabstop=4"<cr>', opts)
+map('n', leader..'t2', ':execute "set ts=2 sw=2 sts=2 et"<cr>', opts)
+map('n', leader..'t4', ':execute "set ts=4 sw=4 sts=4 et"<cr>', opts)
 
 -- go to normal mode
 map('i', 'sd', '<esc>', opts)
@@ -52,6 +58,7 @@ map('n', leader..'ff', '<cmd>Telescope find_files<cr>', opts)
 map('n', leader..'fg', '<cmd>Telescope live_grep<cr>', opts)
 map('n', leader..'fb', '<cmd>Telescope buffers<cr>', opts)
 map('n', leader..'fh', '<cmd>Telescope help_tags<cr>', opts)
+map('n', leader..'fm', '<cmd>Telescope marks<cr>', opts)
 map('n', leader..'fc', '<cmd>Telescope find_files cwd=~/.config/nvim<cr>', opts)
 
 -- plugin - luasnip
@@ -68,6 +75,7 @@ local function set_lsp_keymaps()
   map_buf(0, 'n', leader..'lf', '<cmd>lua vim.lsp.buf.format({ timeout_ms = 8000 })<CR>', opts)
   map_buf(0, 'n', leader..'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   map_buf(0, 'n', leader..'gd', '<Cmd>Telescope lsp_definitions<CR>',  opts)
+  map_buf(0, 'n', leader..'gt', '<Cmd>Telescope lsp_type_definitions<CR>',  opts)
   map_buf(0, 'n', leader..'gr', '<cmd>Telescope lsp_references<CR>',  opts)
 
   map_buf(0, 'n', leader.."ld", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
