@@ -1,3 +1,5 @@
+local db = require('dashboard')
+
 local header = {
   '',
   '',
@@ -8,15 +10,24 @@ local header = {
   ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
   ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
   ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+  '',
+  '',
+  '',
 }
 
-local options = {
-  a = {
-    description = { "  Projects           " },
-    command = "lua require('user/plugins/telescope/project-picker')(require('telescope.themes').get_dropdown{})",
+local center = {
+  {
+    icon = " ",
+    desc = "Projects",
+    action = "lua require('user/plugins/telescope/project-picker')(require('telescope.themes').get_dropdown{})",
+  },
+  {
+    icon = " ",
+    desc = "Pets    ",
+    action = "lua require('user/plugins/telescope/pets-picker')(require('telescope.themes').get_dropdown{})",
   },
 }
 
-vim.g.dashboard_custom_header = header;
-vim.g.dashboard_custom_section = options;
-vim.g.dashboard_custom_footer = {''};
+db.custom_header = header
+db.custom_center = center
+db.custom_footer = {''}
