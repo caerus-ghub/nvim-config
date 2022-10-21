@@ -11,9 +11,7 @@ local function on_attach_diagnosticls()
   end
 
   local config = {
-    -- disable virtual text
     virtual_text = false,
-    -- show signs
     signs = {
       active = signs,
     },
@@ -39,6 +37,12 @@ local function on_attach_diagnosticls()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "rounded",
   })
+
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false
+    }
+  )
 end
 
 return on_attach_diagnosticls
