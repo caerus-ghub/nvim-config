@@ -18,10 +18,6 @@ nvim_tree.setup {
       padding       = ' ',
       symlink_arrow = ' >> ',
       glyphs = {
-        -- 'git',
-        -- 'folders',
-        -- 'files',
-        -- 'folder_arrows',
         default       = '',
         symlink       = '',
         folder = {
@@ -47,7 +43,6 @@ nvim_tree.setup {
     },
   },
   respect_buf_cwd         = true,
-  -- git_hl                  = true,
   create_in_closed_folder = false,
   disable_netrw           = true,
   hijack_netrw            = true,
@@ -84,8 +79,7 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    width = 45,
-    height = 30,
+    width = 55,
     hide_root_folder = false,
     side = 'left',
     mappings = {
