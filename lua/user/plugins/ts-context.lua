@@ -1,4 +1,4 @@
-local ok, ts_context = pcall(require, 'treesitter-content')
+local ok, ts_context = pcall(require, 'treesitter-context')
 
 if not ok then
   vim.cmd('echom "plugin error: treesitter-content is missing"')
