@@ -51,6 +51,7 @@ packer.startup(function(use)
   use 'glepnir/dashboard-nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'nvim-treesitter/nvim-treesitter-context'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   use {
     'lewis6991/gitsigns.nvim',
